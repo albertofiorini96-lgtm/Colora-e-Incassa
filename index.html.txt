@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodo Colora e Incassa - Guadagna con Amazon KDP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans per testo leggibile, Fredoka per titoli giocosi ma premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Fredoka"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            DEFAULT: '#f59e0b',
+                        },
+                        whatsapp: {
+                            500: '#25D366',
+                            600: '#20ba5a',
+                            700: '#1ca04d',
+                        },
+                        dark: {
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.4);
+        }
+        .glow-green {
+            box-shadow: 0 0 25px -5px rgba(37, 211, 102, 0.4);
+        }
+        .animate-border-glow {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+            border-color: rgba(245, 158, 11, 0.8);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Top Urgent Banner -->
+    <div class="bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 text-white text-center py-2.5 px-4 text-sm font-semibold tracking-wide shadow-md flex items-center justify-center gap-2">
+        <span class="inline-flex items-center justify-center bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-widest font-bold">Promo 30 Giugno</span>
+        <span>Blocca il prezzo speciale invece di 1.999€!</span>
+        <div id="countdown-banner" class="hidden md:inline-flex items-center font-mono bg-black/25 px-2 py-0.5 rounded ml-2"></div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="py-5 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <span class="bg-amber-500 text-white p-2 rounded-xl font-display text-2xl font-bold tracking-tight shadow-sm flex items-center justify-center w-10 h-10">🎨</span>
+            <div>
+                <span class="font-display text-xl font-bold text-slate-900 tracking-tight">Colora & Incassa</span>
+                <span class="block text-[10px] text-slate-500 uppercase tracking-widest font-bold">KDP Mastery System</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="#calculator" class="hidden sm:inline-flex text-sm font-semibold text-slate-600 hover:text-amber-600 transition">Calcola Guadagni</a>
+            <button onclick="redirectToWhatsApp('info')" class="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-2xl text-sm font-bold hover:bg-slate-800 transition shadow-sm">
+                <span>Chiedi info</span>
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.416 1.452 5.347 0 9.7-4.32 9.704-9.63.002-2.573-1.002-4.991-2.83-6.822-1.829-1.83-4.253-2.835-6.834-2.835-5.351 0-9.707 4.322-9.71 9.633-.001 1.93.502 3.81 1.458 5.412l-.955 3.493 3.578-.938zm11.375-7.628c-.29-.146-1.714-.847-1.978-.942-.264-.096-.456-.144-.648.144-.192.288-.744.943-.912 1.134-.168.192-.336.216-.626.072-.29-.145-1.224-.45-2.33-1.437-.86-.767-1.44-1.716-1.61-2.004-.17-.288-.018-.443.127-.587.13-.13.29-.336.435-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.233-.56-.47-.483-.648-.492-.168-.008-.36-.01-.552-.01s-.504.072-.768.36c-.264.288-1.008.984-1.008 2.4s1.032 2.784 1.176 2.976c.144.192 2.032 3.102 4.921 4.347.687.296 1.224.474 1.64.607.69.22 1.317.189 1.812.115.55-.083 1.714-.7 1.954-1.374.24-.674.24-1.25.168-1.373-.072-.12-.264-.191-.552-.337z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-8 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <!-- Background decorative vectors (Coloring Book concept) -->
+        <div class="absolute -top-10 -right-10 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute top-1/2 -left-20 w-80 h-80 bg-orange-200/20 rounded-full blur-3xl -z-10"></div>
+
+        <div class="text-center max-w-4xl mx-auto">
+            
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-100 to-orange-100 border border-amber-300 text-amber-900 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-6 shadow-sm animate-pulse">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-600"></span>
+                </span>
+                <span class="font-display font-bold">Metodo ‘Colora e Incassa’</span> — Il Sistema per Vendere su Amazon Senza Scrivere
+            </div>
+
+            <!-- Title -->
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-slate-900 font-extrabold tracking-tight leading-tight mb-6">
+                Guadagna con Amazon KDP con <br class="hidden md:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 drop-shadow-sm">Semplici libri da Colorare</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+                Il sistema passo-passo per creare e vendere libri da colorare su Amazon — anche se hai già provato con i libri <span class="underline decoration-amber-500 decoration-2 font-medium">"normali"</span> e non hai ottenuto i risultati che speravi.
+            </p>
+
+            <!-- Hero CTA Actions -->
+            <div class="flex flex-col items-center justify-center gap-4">
+                <button onclick="redirectToWhatsApp('hero')" 
+                   class="glow-green hover:scale-[1.02] transform transition-all duration-300 group flex items-center justify-center gap-3 bg-whatsapp-500 hover:bg-whatsapp-600 text-white font-extrabold text-lg sm:text-xl px-8 py-5 rounded-3xl w-full max-w-md shadow-lg border-b-4 border-whatsapp-700">
+                    <svg class="w-6 h-6 fill-current group-hover:rotate-12 transition-transform" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.416 1.452 5.347 0 9.7-4.32 9.704-9.63.002-2.573-1.002-4.991-2.83-6.822-1.829-1.83-4.253-2.835-6.834-2.835-5.351 0-9.707 4.322-9.71 9.633-.001 1.93.502 3.81 1.458 5.412l-.955 3.493 3.578-.938zm11.375-7.628c-.29-.146-1.714-.847-1.978-.942-.264-.096-.456-.144-.648.144-.192.288-.744.943-.912 1.134-.168.192-.336.216-.626.072-.29-.145-1.224-.45-2.33-1.437-.86-.767-1.44-1.716-1.61-2.004-.17-.288-.018-.443.127-.587.13-.13.29-.336.435-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.233-.56-.47-.483-.648-.492-.168-.008-.36-.01-.552-.01s-.504.072-.768.36c-.264.288-1.008.984-1.008 2.4s1.032 2.784 1.176 2.976c.144.192 2.032 3.102 4.921 4.347.687.296 1.224.474 1.64.607.69.22 1.317.189 1.812.115.55-.083 1.714-.7 1.954-1.374.24-.674.24-1.25.168-1.373-.072-.12-.264-.191-.552-.337z"/></svg>
+                    <span>Clicca qui e scrivimi su WhatsApp</span>
+                </button>
+                
+                <!-- Urgency Tagline -->
+                <p class="text-sm font-semibold text-slate-500 flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                    Offerta valida solo fino al <span class="text-red-600 font-bold underline">30 Giugno</span>, poi a partire da 1.999 euro
+                </p>
+            </div>
+
+            <!-- Beautiful Mockup Canvas (Visual Element) -->
+            <div class="mt-14 relative mx-auto max-w-4xl p-2 bg-slate-200/50 rounded-[2.5rem] border border-slate-300/40 backdrop-blur-md">
+                <div class="bg-gradient-to-tr from-slate-900 to-slate-950 rounded-[2.1rem] overflow-hidden p-6 sm:p-10 text-left relative min-h-[350px] flex flex-col justify-between shadow-2xl">
+                    <div class="absolute right-0 bottom-0 top-0 w-1/2 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+                    
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-8 border-b border-slate-800 pb-6 z-10">
+                        <div class="flex items-center gap-3">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="ml-2 text-xs text-slate-400 font-mono">amazon_kdp_system_dashboard.log</span>
+                        </div>
+                        <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs px-3 py-1 rounded-full font-bold">KDP Low Content Live Pro</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10">
+                        <div>
+                            <span class="text-xs font-bold text-amber-500 uppercase tracking-widest block mb-2">Perché i Libri da Colorare?</span>
+                            <h3 class="text-2xl sm:text-3xl font-display text-white font-bold leading-tight mb-4">
+                                Zero Scrittura, <span class="text-amber-400">100% Margine</span>. Un modello di business a prova di principiante.
+                            </h3>
+                            <ul class="space-y-2 text-slate-300 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    Crea interi libri in poche ore (anche gratis con l'AI)
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    Nessun costo di inventario o spedizione (ci pensa Amazon)
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    Mercato Globale (USA & UK divorano questi libri!)
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col justify-center items-center text-center">
+                            <!-- SVG Representation of Book Sale on Amazon -->
+                            <div class="relative w-32 h-32 mb-4 bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700">
+                                <span class="text-4xl">📚</span>
+                                <div class="absolute -top-3 -right-3 bg-emerald-500 text-slate-950 font-bold text-xs px-2.5 py-1 rounded-full shadow-lg border border-emerald-300 animate-bounce">
+                                    SOLD! +$4.99
+                                </div>
+                                <span class="absolute bottom-2 right-2 text-[10px] text-slate-400">KDP Print</span>
+                            </div>
+                            <span class="text-xs text-slate-400 block mb-1">Rapporto Royalty Medio per Copia</span>
+                            <span class="text-3xl font-extrabold text-white font-mono">€2.80 - €4.50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Calculator Section -->
+    <section id="calculator" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px] opacity-5 pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-400 text-sm font-extrabold uppercase tracking-widest bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">Fai i tuoi calcoli</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-4">
+                    Calcolatore di Guadagni Amazon KDP
+                </h2>
+                <p class="text-slate-400 text-lg">
+                    Trascina gli slider e scopri quanto puoi guadagnare mensilmente in base al numero di libri pubblicati e alla loro performance sul mercato.
+                </p>
+            </div>
+
+            <!-- Calculator Frame -->
+            <div class="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 lg:p-12 shadow-2xl max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+                
+                <!-- Inputs -->
+                <div class="lg:col-span-7 flex flex-col justify-between space-y-8">
+                    <!-- Control 1: Books -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <label for="range-books" class="font-semibold text-slate-300 text-sm sm:text-base flex items-center gap-2">
+                                <span>📚</span> Numero di Libri nel Catalogo:
+                            </label>
+                            <span id="val-books" class="bg-amber-500/20 text-amber-400 border border-amber-500/30 font-mono font-extrabold px-3 py-1 rounded-lg text-lg">5</span>
+                        </div>
+                        <input type="range" id="range-books" min="1" max="100" value="5" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <div class="flex justify-between text-[11px] text-slate-500 mt-1 font-mono">
+                            <span>1 libro</span>
+                            <span>25 libri</span>
+                            <span>50 libri</span>
+                            <span>75 libri</span>
+                            <span>100 libri</span>
+                        </div>
+                    </div>
+
+                    <!-- Control 2: Copies Sold Monthly -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <label for="range-sales" class="font-semibold text-slate-300 text-sm sm:text-base flex items-center gap-2">
+                                <span>🛒</span> Copie Vendute Mensili per Libro:
+                            </label>
+                            <span id="val-sales" class="bg-amber-500/20 text-amber-400 border border-amber-500/30 font-mono font-extrabold px-3 py-1 rounded-lg text-lg">40</span>
+                        </div>
+                        <input type="range" id="range-sales" min="5" max="250" value="40" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <div class="flex justify-between text-[11px] text-slate-500 mt-1 font-mono">
+                            <span>5 copie/mese</span>
+                            <span>50</span>
+                            <span>100</span>
+                            <span>150</span>
+                            <span>200</span>
+                            <span>250 copie/mese</span>
+                        </div>
+                    </div>
+
+                    <!-- Control 3: Royalty per Book -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <label for="range-royalty" class="font-semibold text-slate-300 text-sm sm:text-base flex items-center gap-2">
+                                <span>💰</span> Royalty Media netta per Copia:
+                            </label>
+                            <span id="val-royalty" class="bg-amber-500/20 text-amber-400 border border-amber-500/30 font-mono font-extrabold px-3 py-1 rounded-lg text-lg">€4.50</span>
+                        </div>
+                        <input type="range" id="range-royalty" min="2.00" max="8.00" step="0.10" value="4.50" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <div class="flex justify-between text-[11px] text-slate-500 mt-1 font-mono">
+                            <span>€2.00</span>
+                            <span>€3.50</span>
+                            <span>€5.00</span>
+                            <span>€6.50</span>
+                            <span>€8.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outputs / Results -->
+                <div class="lg:col-span-5 bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-slate-400 font-bold block mb-2">Simulazione di Rendita Mensile</span>
+                        <div class="text-5xl sm:text-6xl font-black text-amber-400 font-mono tracking-tight flex items-baseline">
+                            <span id="calc-monthly-total">€900</span>
+                            <span class="text-xs text-slate-400 font-normal ml-2">/ mese</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-2">
+                            Entrate annuali stimate: <span id="calc-yearly-total" class="font-bold text-white font-mono">€10.800</span>
+                        </div>
+                    </div>
+
+                    <!-- Milestone Badge -->
+                    <div id="calc-milestone" class="my-6 p-4 bg-slate-800/80 border border-slate-700/60 rounded-2xl flex items-center gap-3">
+                        <span class="text-2xl" id="milestone-icon">🛒</span>
+                        <div>
+                            <span class="text-xs text-slate-400 font-bold uppercase block">Obiettivo Sbloccato</span>
+                            <span class="text-sm font-semibold text-white" id="milestone-text">Copre la Spesa e le bollette!</span>
+                        </div>
+                    </div>
+
+                    <div class="text-xs text-slate-500 leading-relaxed italic">
+                        *Le stime si basano sui dati medi reali dei nostri studenti più attivi su KDP. I risultati effettivi dipendono dall'impegno e dalla qualità dell'ottimizzazione applicata.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Detailed Personal Story Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="bg-white border border-slate-200 shadow-xl rounded-[2.5rem] p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-3xl mx-auto">
+                <span class="text-sm uppercase tracking-widest font-bold text-amber-500 block mb-3">La dura realtà (e come uscirne)</span>
+                <h3 class="font-display text-2xl sm:text-3xl lg:text-4xl text-slate-900 font-bold tracking-tight mb-8">
+                    Hai già speso soldi su un corso, hai seguito le istruzioni, hai provato a mettere in piedi qualcosa — e alla fine i risultati non sono arrivati.
+                </h3>
+
+                <div class="space-y-6 text-slate-600 text-base sm:text-lg leading-relaxed">
+                    <p>
+                        Se è andata così, prima di tutto voglio dirti che <strong class="text-slate-900">non sei solo</strong>. È una situazione che conosco bene, perché l'ho vista decine di volte.
+                    </p>
+                    
+                    <p class="border-l-4 border-amber-500 pl-4 italic text-slate-700 bg-amber-500/5 py-2 pr-2 rounded-r-lg">
+                        Il problema nella maggior parte dei casi non sei tu. È il metodo.
+                    </p>
+
+                    <p>
+                        Scrivere libri <em>"full content"</em> richiede settimane di duro lavoro per un singolo titolo, e anche quando tutto va bene i tempi per vedere i primi guadagni sono lunghi. Con il <strong>low content</strong> funziona in modo completamente diverso: un libro da colorare si crea in pochi giorni, anche meno se hai già preso il ritmo.
+                    </p>
+
+                    <p>
+                        E la cosa bella è che <strong class="text-slate-900">puoi crearne tanti, uno dopo l'altro</strong>, costruendo un catalogo che cresce in fretta. Un catalogo che inizia a generare entrate molto prima di quanto immagini.
+                    </p>
+
+                    <!-- Pain point highlights -->
+                    <div class="my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 border border-slate-150 p-5 rounded-2xl">
+                            <span class="text-xl block mb-2">🛑</span>
+                            <p class="text-sm text-slate-600">
+                                Forse ti sei bloccato perché senza recensioni non riesci ad attivare le campagne ADS — e senza le ADS il libro non lo vede nessuno.
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-150 p-5 rounded-2xl">
+                            <span class="text-xl block mb-2">🇺🇸</span>
+                            <p class="text-sm text-slate-600">
+                                Oppure hai capito che il mercato italiano da solo è troppo piccolo per fare numeri interessanti, ma non sai da dove iniziare con quello americano.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p>
+                        O semplicemente hai paura di rimettere mano al portafoglio dopo una brutta esperienza — e lo capisco benissimo.
+                    </p>
+
+                    <p>
+                        Questo corso nasce esattamente da queste situazioni. Ti mostro un <strong class="text-slate-900">sistema concreto</strong> per pubblicare più libri in poco tempo, entrare nel mercato USA in modo sicuro e iniziare a vedere i primi risultati senza aspettare mesi.
+                    </p>
+
+                    <p class="font-medium text-slate-900">
+                        Senza trucchi, senza scorciatoie rischiose — solo un metodo che funziona e che puoi replicare quamente volte vuoi.
+                    </p>
+                </div>
+
+                <!-- Mid-page CTA -->
+                <div class="mt-12 text-center">
+                    <button onclick="redirectToWhatsApp('mid')" 
+                       class="inline-flex items-center justify-center gap-3 bg-whatsapp-500 hover:bg-whatsapp-600 text-white font-extrabold text-lg px-8 py-4.5 rounded-2xl w-full max-w-md shadow-md hover:shadow-lg hover:scale-[1.01] transition-all">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.416 1.452 5.347 0 9.7-4.32 9.704-9.63.002-2.573-1.002-4.991-2.83-6.822-1.829-1.83-4.253-2.835-6.834-2.835-5.351 0-9.707 4.322-9.71 9.633-.001 1.93.502 3.81 1.458 5.412l-.955 3.493 3.578-.938zm11.375-7.628c-.29-.146-1.714-.847-1.978-.942-.264-.096-.456-.144-.648.144-.192.288-.744.943-.912 1.134-.168.192-.336.216-.626.072-.29-.145-1.224-.45-2.33-1.437-.86-.767-1.44-1.716-1.61-2.004-.17-.288-.018-.443.127-.587.13-.13.29-.336.435-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.233-.56-.47-.483-.648-.492-.168-.008-.36-.01-.552-.01s-.504.072-.768.36c-.264.288-1.008.984-1.008 2.4s1.032 2.784 1.176 2.976c.144.192 2.032 3.102 4.921 4.347.687.296 1.224.474 1.64.607.69.22 1.317.189 1.812.115.55-.083 1.714-.7 1.954-1.374.24-.674.24-1.25.168-1.373-.072-.12-.264-.191-.552-.337z"/></svg>
+                        <span>Scrivimi ora su WhatsApp</span>
+                    </button>
+                    <p class="text-xs text-slate-500 mt-2">
+                        Promo valida solo fino al 30 giugno, poi il corso torna a partire da 1.999 euro
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Modules Section -->
+    <section class="py-20 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-600 text-sm font-extrabold uppercase tracking-widest bg-amber-500/10 px-4 py-1.5 rounded-full">Il Programma Completo</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-4">
+                    Cosa impari nel corso
+                </h2>
+                <p class="text-slate-600 text-lg">
+                    Oltre <strong>4 ore di contenuti video</strong> ad altissima risoluzione, pratici e pronti da implementare. Ogni modulo risponde a una domanda precisa che ti stai facendo.
+                </p>
+            </div>
+
+            <!-- Modules Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Modulo 1 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                    <span class="absolute top-0 right-0 bg-amber-500/10 text-amber-600 font-mono font-bold text-xs px-4 py-1.5 rounded-bl-2xl">01</span>
+                    <div>
+                        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest block mb-1">Modulo 1</span>
+                        <h4 class="font-display text-xl font-bold text-slate-950 mb-4">Cos'è il Low Content e perché funziona adesso</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            La differenza abissale tra libri "full content" e "low content". Scoprirai perché questi ultimi hanno molta meno competizione e margini di guadagno incredibilmente migliori sia sul mercato italiano che negli USA.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 mt-6 pt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-medium">Basi & Strategia</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Video HD</span>
+                    </div>
+                </div>
+
+                <!-- Modulo 2 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                    <span class="absolute top-0 right-0 bg-amber-500/10 text-amber-600 font-mono font-bold text-xs px-4 py-1.5 rounded-bl-2xl">02</span>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Modulo 2</span>
+                            <span class="bg-red-100 text-red-700 text-[10px] font-extrabold px-1.5 py-0.5 rounded uppercase">File Incluso</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold text-slate-950 mb-4">Scegliere la nicchia giusta</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Come trovare categorie super profittevoli con pochissima concorrenza. Impara a validare le tue idee prima di pubblicare per non sprecare nemmeno un minuto su progetti che non vendono.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 mt-6 pt-4 flex items-center justify-between">
+                        <span class="text-xs text-amber-600 font-bold flex items-center gap-1">🎁 Include file 20 Nicchie</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Video HD</span>
+                    </div>
+                </div>
+
+                <!-- Modulo 3 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                    <span class="absolute top-0 right-0 bg-amber-500/10 text-amber-600 font-mono font-bold text-xs px-4 py-1.5 rounded-bl-2xl">03</span>
+                    <div>
+                        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest block mb-1">Modulo 3</span>
+                        <h4 class="font-display text-xl font-bold text-slate-950 mb-4">Creare il libro da zero, strumenti e template</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Quali tool utilizzare (anche gratuiti e moderni), come formattare correttamente le pagine interne per Amazon KDP e completare il caricamento del file PDF senza incappare in fastidiosi errori tecnici.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 mt-6 pt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-medium">Pratica & Grafica</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Video HD</span>
+                    </div>
+                </div>
+
+                <!-- Modulo 4 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                    <span class="absolute top-0 right-0 bg-amber-500/10 text-amber-600 font-mono font-bold text-xs px-4 py-1.5 rounded-bl-2xl">04</span>
+                    <div>
+                        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest block mb-1">Modulo 4</span>
+                        <h4 class="font-display text-xl font-bold text-slate-950 mb-4">Copertine che vendono e ottimizzazione SEO</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Come strutturare e disegnare una copertina magnetica che cattura immediatamente i clic degli acquirenti. Come strutturare titolo, sottotitolo e descrizione per dominare le chiavi di ricerca di Amazon.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 mt-6 pt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-medium">Marketing Visivo</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Video HD</span>
+                    </div>
+                </div>
+
+                <!-- Modulo 5 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                    <span class="absolute top-0 right-0 bg-amber-500/10 text-amber-600 font-mono font-bold text-xs px-4 py-1.5 rounded-bl-2xl">05</span>
+                    <div>
+                        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest block mb-1">Modulo 5</span>
+                        <h4 class="font-display text-xl font-bold text-slate-950 mb-4">Lanciare sul mercato USA in sicurezza</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            La guida definitiva per sbarcare negli Stati Uniti. Scoprirai come ottenere le primissime e cruciali recensioni organiche senza rischiare ban dell'account e senza dissanguarti in campagne pubblicitarie.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 mt-6 pt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-medium">Lancio Organico</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Video HD</span>
+                    </div>
+                </div>
+
+                <!-- Modulo 6 -->
+                <div class="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                    <span class="absolute top-0 right-0 bg-amber-500/10 text-amber-600 font-mono font-bold text-xs px-4 py-1.5 rounded-bl-2xl">06</span>
+                    <div>
+                        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest block mb-1">Modulo 6</span>
+                        <h4 class="font-display text-xl font-bold text-slate-950 mb-4">Scalare: da un solo libro a un catalogo passivo</h4>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Come trasformare un singolo successo in un intero impero che lavora da solo. Come replicare il sistema su decine di titoli, analizzare i dati di vendita e incrementare la redditività senza essere esperti di marketing.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-100 mt-6 pt-4 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-medium">Scaling & Automazione</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Video HD</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Super Bonuses Included -->
+    <section class="py-20 bg-gradient-to-tr from-slate-900 to-slate-950 text-white relative">
+        <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-400 text-sm font-extrabold uppercase tracking-widest border border-amber-400/30 px-3 py-1 rounded-full bg-amber-400/5">Inclusi Nell'offerta</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-4 mb-4">
+                    Bonus Esclusivi Che Trovi Oggi
+                </h2>
+                <p class="text-slate-400 text-lg">
+                    Se ti iscrivi prima della scadenza, sblocchi questi acceleratori di risultati del valore reale di oltre 800€.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Bonus 1 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:border-amber-500/40 transition duration-300">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/25 transition"></div>
+                    <div class="text-3xl mb-4">🗺️</div>
+                    <h3 class="text-xl font-bold mb-2">Roadmap & To-Do List</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Una checklist completa ed intuitiva da spuntare a ogni singolo passaggio operativo. In questo modo saprai sempre con precisione assoluta a che punto sei e cosa fare subito dopo.
+                    </p>
+                    <span class="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full uppercase">Valore: 99€ (Gratis)</span>
+                </div>
+
+                <!-- Bonus 2 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:border-amber-500/40 transition duration-300">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/25 transition"></div>
+                    <div class="text-3xl mb-4">🔥</div>
+                    <h3 class="text-xl font-bold mb-2">Le 20 migliori nicchie</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Un database pronto all'uso contenente le 20 nicchie ad altissimo profitto e bassa concorrenza che abbiamo meticolosamente selezionato sia per il florido mercato USA che per quello italiano.
+                    </p>
+                    <span class="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full uppercase">Valore: 299€ (Gratis)</span>
+                </div>
+
+                <!-- Bonus 3 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:border-amber-500/40 transition duration-300">
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/25 transition"></div>
+                    <div class="text-3xl mb-4">🗣️</div>
+                    <h3 class="text-xl font-bold mb-2">Consulenze Personali</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Sessioni individuali 1-to-1 direttamente con me. Analizzeremo il tuo progetto, risponderò a tutte le tue domande e ti sbloccherò all'istante (2 incluse nel piano Standard, ben 10 nel pacchetto Premium AI!).
+                    </p>
+                    <span class="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full uppercase">Fino a 10 Consulenze</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pricing Section with TWO PACKAGES -->
+    <section class="py-20 bg-amber-50/50 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="bg-amber-500 text-slate-950 font-display font-extrabold text-xs sm:text-sm px-6 py-2 rounded-full shadow-md uppercase tracking-widest border border-amber-300">
+                    🔥 SCEGLI LA TUA STRADA VERSO IL SUCCESSO SU KDP
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-6 mb-4">
+                    Scegli il tuo pacchetto promozionale
+                </h2>
+                <p class="text-slate-600 text-lg">
+                    Blocca l'offerta speciale valida solo fino al <span class="text-red-600 font-bold">30 Giugno</span>. Entrambe le opzioni includono la garanzia soddisfatti o rimborsati.
+                </p>
+            </div>
+
+            <!-- Two-Package Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+                
+                <!-- Package 1: STANDARD (€499) -->
+                <div class="bg-white border-2 border-slate-200 shadow-xl rounded-[3rem] p-8 sm:p-10 flex flex-col justify-between relative transition hover:shadow-2xl">
+                    <div>
+                        <div class="mb-6 pb-6 border-b border-slate-100 text-center">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">PACCHETTO BASE</span>
+                            <h3 class="font-display text-3xl font-bold text-slate-900 mb-4">Standard</h3>
+                            <div class="text-slate-400 text-sm line-through mb-1">Prezzo di Listino: 1.999 €</div>
+                            <div class="text-4xl sm:text-5xl font-display font-black text-slate-900 tracking-tight">499 €</div>
+                            <span class="inline-block bg-red-100 text-red-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase mt-2">Risparmia 1.500€</span>
+                        </div>
+
+                        <ul class="space-y-4 text-sm sm:text-base text-slate-600 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>Corso Completo:</strong> Oltre 4 ore di video-lezioni passo-passo.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>Checklist Pratica:</strong> Roadmap e To-Do List stampabile.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>File Esclusivo:</strong> Le 20 migliori nicchie USA e ITA.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>2 Consulenze Personali:</strong> Prenotabili direttamente online senza scadenza.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>Accesso Illimitato:</strong> Materiali accessibili a vita e aggiornamenti gratis.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <!-- Pricing CTA Standard -->
+                        <button onclick="redirectToWhatsApp('standard')" 
+                           class="w-full text-center inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-display font-black text-lg px-6 py-4 rounded-2xl shadow-md border-b-4 border-slate-950 transition hover:scale-[1.01]">
+                            <span>Sì, voglio accedere a 499 €</span>
+                        </button>
+                        <p class="text-xs text-slate-400 text-center mt-3">
+                            Invia un messaggio per bloccare il prezzo e partire oggi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Package 2: PREMIUM AI & CONSULENZE (€1.499) -->
+                <div class="bg-white border-4 border-amber-400 shadow-2xl rounded-[3rem] p-8 sm:p-10 flex flex-col justify-between relative transition hover:shadow-2xl animate-border-glow">
+                    <!-- Recommended Overlay Badge -->
+                    <span class="absolute -top-4 right-10 bg-amber-500 text-slate-950 font-display font-extrabold text-xs px-4 py-1.5 rounded-full border border-amber-300 uppercase tracking-wider">
+                        ⭐ CONSIGLIATO • COMPLETO
+                    </span>
+
+                    <div>
+                        <div class="mb-6 pb-6 border-b border-slate-100 text-center">
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider block mb-1">FORMULA VELOCE & ASSISTITA</span>
+                            <h3 class="font-display text-3xl font-bold text-slate-900 mb-4">Premium & AI</h3>
+                            <div class="text-slate-400 text-sm line-through mb-1">Prezzo di Listino: 4.999 €</div>
+                            <div class="text-4xl sm:text-5xl font-display font-black text-amber-600 tracking-tight">1.499 €</div>
+                            <span class="inline-block bg-amber-100 text-amber-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase mt-2">Risparmia 3.500€ + Libri Inclusi</span>
+                        </div>
+
+                        <ul class="space-y-4 text-sm sm:text-base text-slate-600 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>Tutti i contenuti Standard:</strong> Corso, Roadmap e file delle 20 nicchie.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-amber-500 font-extrabold shrink-0">★</span>
+                                <span class="text-slate-900 font-bold bg-amber-500/10 px-1 rounded">2 Libri Low Content Completi:</span> Creati su misura per te con sistemi AI e pronti da caricare e monetizzare.
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-amber-500 font-extrabold shrink-0">★</span>
+                                <span class="text-slate-900 font-bold bg-amber-500/10 px-1 rounded">Ben 10 Consulenze Personali:</span> Un vero e proprio affiancamento 1-to-1 con me per guidarti passo-passo nel lancio.
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>Supporto Prioritario:</strong> Linea diretta con me per qualsiasi dubbio tecnico o di marketing.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 font-bold shrink-0">✓</span>
+                                <span><strong>Revisione File KDP:</strong> Controllo personalmente i tuoi file prima di caricarli.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <!-- Pricing CTA Premium -->
+                        <button onclick="redirectToWhatsApp('premium')" 
+                           class="glow-effect w-full text-center inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-display font-black text-lg px-6 py-4 rounded-2xl shadow-xl border-b-4 border-amber-700 transition hover:scale-[1.01]">
+                            <span>Sì, voglio il Pacchetto Premium a 1.499 €</span>
+                        </button>
+                        <p class="text-xs text-slate-500 text-center mt-3 font-semibold">
+                            Fai decollare il tuo business con i libri pronti e 10 sessioni incluse.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Live Countdown Visual Timer -->
+            <div class="mt-16 bg-white border border-slate-200 p-6 rounded-[2.5rem] max-w-md mx-auto text-center shadow-lg">
+                <span class="text-xs uppercase tracking-widest text-slate-500 font-bold block mb-2">I prezzi torneranno a listino pieno tra:</span>
+                <div id="countdown-timer" class="grid grid-cols-4 gap-2 text-center font-mono">
+                    <div class="bg-slate-900 text-white p-2 rounded-lg"><span id="days" class="block text-xl font-bold">00</span><span class="text-[9px] text-slate-400">Giorni</span></div>
+                    <div class="bg-slate-900 text-white p-2 rounded-lg"><span id="hours" class="block text-xl font-bold">00</span><span class="text-[9px] text-slate-400">Ore</span></div>
+                    <div class="bg-slate-900 text-white p-2 rounded-lg"><span id="minutes" class="block text-xl font-bold">00</span><span class="text-[9px] text-slate-400">Minuti</span></div>
+                    <div class="bg-slate-900 text-white p-2 rounded-lg"><span id="seconds" class="block text-xl font-bold">00</span><span class="text-[9px] text-slate-400">Secondi</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-amber-600 text-sm font-extrabold uppercase tracking-widest">Domande e Risposte</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mt-2">
+                Domande Frequenti
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            
+            <!-- FAQ 1 -->
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(1)" class="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50">
+                    <span>Ho già provato con i libri full content e non ho guadagnato nulla. Perché il low content dovrebbe essere diverso?</span>
+                    <span id="faq-icon-1" class="text-amber-500 text-2xl font-mono leading-none transition-transform duration-300">+</span>
+                </button>
+                <div id="faq-ans-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="p-6 sm:p-8 pt-0 text-slate-600 border-t border-slate-100 text-sm sm:text-base leading-relaxed">
+                        I libri da colorare non richiedono di scrivere contenuti complessi né di posizionarsi come autori autorevoli o esperti. La barriera d'ingresso è infinitamente più bassa, i tempi di produzione sono estremamente veloci e la domanda sul mercato americano (USA) è costante e massiccia tutto l'anno. Nel corso vedrai esattamente perché funziona e come replicare questo identico ecosistema.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(2)" class="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50">
+                    <span>Devo avere competenze grafiche o tecniche?</span>
+                    <span id="faq-icon-2" class="text-amber-500 text-2xl font-mono leading-none transition-transform duration-300">+</span>
+                </button>
+                <div id="faq-ans-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="p-6 sm:p-8 pt-0 text-slate-600 border-t border-slate-100 text-sm sm:text-base leading-relaxed">
+                        Assolutamente no. All'interno del corso ti mostro l'utilizzo di strumenti software semplicissimi e template di formattazione già pronti all'uso. Se sai utilizzare autonomamente uno smartphone ed un computer per navigare sul web, possiedi già tutte le competenze minime per iniziare.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(3)" class="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50">
+                    <span>Quanto tempo ci vuole per pubblicare il primo libro?</span>
+                    <span id="faq-icon-3" class="text-amber-500 text-2xl font-mono leading-none transition-transform duration-300">+</span>
+                </button>
+                <div id="faq-ans-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="p-6 sm:p-8 pt-0 text-slate-600 border-t border-slate-100 text-sm sm:text-base leading-relaxed">
+                        Con l'esatto metodo strategico che ti insegno nel videocorso, il tuo primo libro da colorare pronto per la vendita può essere impaginato e pubblicato su Amazon in soli 3-5 giorni, partendo completamente da zero. La roadmap allegata ti guiderà passo-passo impedendoti di bloccarti.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(4)" class="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50">
+                    <span>Le consulenze omaggio quando si svolgono?</span>
+                    <span id="faq-icon-4" class="text-amber-500 text-2xl font-mono leading-none transition-transform duration-300">+</span>
+                </button>
+                <div id="faq-ans-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="p-6 sm:p-8 pt-0 text-slate-600 border-t border-slate-100 text-sm sm:text-base leading-relaxed">
+                        Le sessioni di consulenza incluse nell'offerta si prenotano autonomamente subito dopo l'acquisto tramite un calendario virtuale interattivo. Puoi pianificarle liberamente quando preferisci, poiché non hanno alcuna scadenza prefissata. Puoi usarle all'inizio per impostare il lavoro o successivamente per ottimizzare i guadagni.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300">
+                <button onclick="toggleFaq(5)" class="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50">
+                    <span>Il prezzo speciale è davvero solo fino al 30 giugno?</span>
+                    <span id="faq-icon-5" class="text-amber-500 text-2xl font-mono leading-none transition-transform duration-300">+</span>
+                </button>
+                <div id="faq-ans-5" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <p class="p-6 sm:p-8 pt-0 text-slate-600 border-t border-slate-100 text-sm sm:text-base leading-relaxed">
+                        Sì, è un prezzo promozionale di lancio. Dopo il 30 giugno i pacchetti torneranno inderogabilmente alla tariffa standard di 1.999€ per lo Standard e 4.999€ per il Premium con libri pronti inclusi. Chi acquista oggi blocca l'offerta promozionale.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Custom Chat Box with WhatsApp -->
+    <section id="whatsapp-cta" class="py-16 bg-slate-900 text-white relative border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-display text-2xl sm:text-3xl font-bold mb-3">Hai ancora dubbi o vuoi fare delle domande specifiche?</h3>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto text-sm sm:text-base">
+                Scrivi qui sotto la tua domanda: ti reindirizzerò direttamente a WhatsApp per parlarne insieme. Rispondo personalmente!
+            </p>
+
+            <div class="bg-slate-950 border border-slate-800 p-6 rounded-3xl max-w-lg mx-auto text-left shadow-xl">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-4 mb-4">
+                    <div class="relative">
+                        <span class="text-3xl">👨‍💻</span>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
+                    </div>
+                    <div>
+                        <span class="font-bold block text-sm">Il tuo tutor di Colora & Incassa</span>
+                        <span class="text-xs text-emerald-400">Online ora • Risponde in pochi minuti</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <textarea id="wa-user-msg" rows="3" placeholder="Scrivi qui la tua domanda (es. 'Ciao, vorrei sapere se posso pagare a rate...')" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-slate-500"></textarea>
+                    
+                    <button onclick="sendCustomWhatsApp()" class="w-full bg-whatsapp-500 hover:bg-whatsapp-600 text-white font-bold p-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition duration-300">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 shadow-lg-11.953 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.416 1.452 5.347 0 9.7-4.32 9.704-9.63.002-2.573-1.002-4.991-2.83-6.822-1.829-1.83-4.253-2.835-6.834-2.835-5.351 0-9.707 4.322-9.71 9.633-.001 1.93.502 3.81 1.458 5.412l-.955 3.493 3.578-.938zm11.375-7.628c-.29-.146-1.714-.847-1.978-.942-.264-.096-.456-.144-.648.144-.192.288-.744.943-.912 1.134-.168.192-.336.216-.626.072-.29-.145-1.224-.45-2.33-1.437-.86-.767-1.44-1.716-1.61-2.004-.17-.288-.018-.443.127-.587.13-.13.29-.336.435-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.233-.56-.47-.483-.648-.492-.168-.008-.36-.01-.552-.01s-.504.072-.768.36c-.264.288-1.008.984-1.008 2.4s1.032 2.784 1.176 2.976c.144.192 2.032 3.102 4.921 4.347.687.296 1.224.474 1.64.607.69.22 1.317.189 1.812.115.55-.083 1.714-.7 1.954-1.374.24-.674.24-1.25.168-1.373-.072-.12-.264-.191-.552-.337z"/></svg>
+                        <span>Invia su WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Repeated pricing CTA note -->
+            <p class="text-xs text-slate-500 mt-4 italic">
+                Offerta valida solo fino al 30 giugno, poi a partire da 1999 euro.
+            </p>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center justify-center bg-emerald-50 text-emerald-800 border border-emerald-200 w-20 h-20 rounded-full text-4xl mb-6 shadow-sm">
+                🛡️
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold text-slate-950 mb-4">Il tuo investimento è protetto al 100%</h3>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                Hai ben <strong class="text-slate-900">14 giorni</strong> per guardare e studiare l'intero materiale del corso. Se pensi che non faccia al caso tuo o non sei soddisfatto dei contenuti, ti rimborsiamo completamente la quota versata senza farti domande scomode. <br>
+                <strong class="text-slate-900 block mt-2">Vogliamo che tu sia soddisfatto al 100%, non intrappolato.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Widget (For conversion) -->
+    <button onclick="redirectToWhatsApp('floating')" 
+       class="fixed bottom-6 right-6 z-50 bg-whatsapp-500 text-white p-4 rounded-full shadow-2xl hover:bg-whatsapp-600 hover:scale-110 transition duration-300 flex items-center justify-center glow-green">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.451 5.416 1.452 5.347 0 9.7-4.32 9.704-9.63.002-2.573-1.002-4.991-2.83-6.822-1.829-1.83-4.253-2.835-6.834-2.835-5.351 0-9.707 4.322-9.71 9.633-.001 1.93.502 3.81 1.458 5.412l-.955 3.493 3.578-.938zm11.375-7.628c-.29-.146-1.714-.847-1.978-.942-.264-.096-.456-.144-.648.144-.192.288-.744.943-.912 1.134-.168.192-.336.216-.626.072-.29-.145-1.224-.45-2.33-1.437-.86-.767-1.44-1.716-1.61-2.004-.17-.288-.018-.443.127-.587.13-.13.29-.336.435-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.233-.56-.47-.483-.648-.492-.168-.008-.36-.01-.552-.01s-.504.072-.768.36c-.264.288-1.008.984-1.008 2.4s1.032 2.784 1.176 2.976c.144.192 2.032 3.102 4.921 4.347.687.296 1.224.474 1.64.607.69.22 1.317.189 1.812.115.55-.083 1.714-.7 1.954-1.374.24-.674.24-1.25.168-1.373-.072-.12-.264-.191-.552-.337z"/></svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-900 text-center text-xs">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="bg-amber-500/10 text-amber-500 p-1 rounded font-display text-sm font-bold">🎨</span>
+                <span class="font-display text-sm font-bold text-slate-300">Colora & Incassa © <span id="footer-year">2026</span></span>
+            </div>
+            <p class="max-w-2xl mx-auto text-slate-600 leading-relaxed">
+                Questo sito non fa parte del sito di Facebook, di Meta Platforms Inc. o di Amazon Inc. Inoltre, questo sito NON è approvato o sponsorizzato da Facebook o Amazon in alcun modo. I marchi registrarti "Amazon", "KDP" sono di proprietà dei rispettivi titolari.
+            </p>
+            <p class="text-slate-700">
+                P.IVA IT01234567890 • Tutti i diritti riservati.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // ==========================================
+        // CONFIGURAZIONE NUMERO WHATSAPP PERSONALE
+        // Sostituisci questo numero con il tuo!
+        // Usa il formato internazionale senza "+" e senza "00" (Es. per l'Italia inizia con 39...)
+        const WHATSAPP_NUMBER = "393496224465"; 
+        // ==========================================
+
+        // Automatic Year Updated
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Centralized WhatsApp Redirect Logic
+        function redirectToWhatsApp(type) {
+            let message = "";
+            switch(type) {
+                case 'hero':
+                    message = "Ciao! Voglio informazioni sul metodo Colora e Incassa in offerta promozionale. Come posso iniziare?";
+                    break;
+                case 'mid':
+                    message = "Ciao! Ho letto la tua storia e vorrei capire se il low-content fa al caso mio. Vorrei maggiori informazioni sul corso.";
+                    break;
+                case 'standard':
+                    message = "Ciao! Vorrei bloccare l'offerta per il Pacchetto Standard da 499€ (con 2 consulenze e materiale completo).";
+                    break;
+                case 'premium':
+                    message = "Ciao! Sono molto interessato al Pacchetto Premium da 1.499€ (con i 2 libri creati con AI pronti all'uso e 10 consulenze individuali). Come procediamo?";
+                    break;
+                case 'info':
+                    message = "Ciao! Vorrei ricevere informazioni di base sui pacchetti attivi per il corso di Amazon KDP Low Content.";
+                    break;
+                case 'floating':
+                    message = "Ciao! Ho navigato sulla tua landing page e vorrei farti qualche domanda sul videocorso KDP.";
+                    break;
+                default:
+                    message = "Ciao! Vorrei ricevere maggiori informazioni sul metodo Colora e Incassa.";
+            }
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Custom Message Box Sender
+        function sendCustomWhatsApp() {
+            const userMsg = document.getElementById('wa-user-msg').value.trim();
+            const defaultText = "Ciao! Vorrei avere più informazioni sul metodo Colora e Incassa.";
+            const finalMsg = userMsg ? userMsg : defaultText;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalMsg)}`, '_blank');
+        }
+
+        // FAQ Toggle Logic
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (ans.style.maxHeight && ans.style.maxHeight !== '0px') {
+                ans.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+                icon.textContent = '+';
+            } else {
+                ans.style.maxHeight = ans.scrollHeight + 'px';
+                icon.style.transform = 'rotate(45deg)';
+                icon.textContent = '+';
+            }
+        }
+
+        // Dynamic Real KDP Calculator Logic
+        const rangeBooks = document.getElementById('range-books');
+        const rangeSales = document.getElementById('range-sales');
+        const rangeRoyalty = document.getElementById('range-royalty');
+
+        const valBooks = document.getElementById('val-books');
+        const valSales = document.getElementById('val-sales');
+        const valRoyalty = document.getElementById('val-royalty');
+
+        const monthlyOutput = document.getElementById('calc-monthly-total');
+        const yearlyOutput = document.getElementById('calc-yearly-total');
+
+        const milestoneIcon = document.getElementById('milestone-icon');
+        const milestoneText = document.getElementById('milestone-text');
+
+        function updateCalculator() {
+            const books = parseInt(rangeBooks.value);
+            const sales = parseInt(rangeSales.value);
+            const royalty = parseFloat(rangeRoyalty.value);
+
+            // Update range labels
+            valBooks.textContent = books;
+            valSales.textContent = sales;
+            valRoyalty.textContent = '€' + royalty.toFixed(2);
+
+            // Calculation
+            const monthlyGuadagno = Math.round(books * sales * royalty);
+            const yearlyGuadagno = Math.round(monthlyGuadagno * 12);
+
+            // Print values
+            monthlyOutput.textContent = '€' + monthlyGuadagno.toLocaleString('it-IT');
+            yearlyOutput.textContent = '€' + yearlyGuadagno.toLocaleString('it-IT');
+
+            // Dynamic Milestone Messages (Adapted to higher earnings)
+            if (monthlyGuadagno < 300) {
+                milestoneIcon.textContent = '☕';
+                milestoneText.textContent = 'Copre le colazioni ed i caffè mensili!';
+            } else if (monthlyGuadagno >= 300 && monthlyGuadagno < 1000) {
+                milestoneIcon.textContent = '🛒';
+                milestoneText.textContent = 'Copre la spesa intera e tutte le bollette di casa!';
+            } else if (monthlyGuadagno >= 1000 && monthlyGuadagno < 3000) {
+                milestoneIcon.textContent = '💼';
+                milestoneText.textContent = 'Equivale ad uno stipendio medio a tempo pieno!';
+            } else if (monthlyGuadagno >= 3000 && monthlyGuadagno < 7000) {
+                milestoneIcon.textContent = '✈️';
+                milestoneText.textContent = 'Libertà finanziaria! Puoi viaggiare ed investire sul serio.';
+            } else {
+                milestoneIcon.textContent = '👑';
+                milestoneText.textContent = 'Stai costruendo un vero impero editoriale globale!';
+            }
+        }
+
+        // Add listeners to range inputs
+        rangeBooks.addEventListener('input', updateCalculator);
+        rangeSales.addEventListener('input', updateCalculator);
+        rangeRoyalty.addEventListener('input', updateCalculator);
+
+        // Initial calc
+        updateCalculator();
+
+        // Dynamic Countdown Timer to June 30th of the current year (or next year if past June)
+        function initCountdown() {
+            let now = new Date();
+            let currentYear = now.getFullYear();
+            let targetDate = new Date(`June 30, ${currentYear} 23:59:59`);
+            
+            // If we are already past June 30 of the current year, target the next year
+            if (now > targetDate) {
+                targetDate = new Date(`June 30, ${currentYear + 1} 23:59:59`);
+            }
+
+            function updateTimer() {
+                const nowMs = new Date().getTime();
+                const diff = targetDate.getTime() - nowMs;
+
+                if (diff <= 0) {
+                    document.getElementById('countdown-timer').innerHTML = "Promo Scaduta!";
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                // Main countdown elements
+                const daysElem = document.getElementById('days');
+                const hoursElem = document.getElementById('hours');
+                const minsElem = document.getElementById('minutes');
+                const secsElem = document.getElementById('seconds');
+
+                if (daysElem) daysElem.textContent = String(days).padStart(2, '0');
+                if (hoursElem) hoursElem.textContent = String(hours).padStart(2, '0');
+                if (minsElem) minsElem.textContent = String(minutes).padStart(2, '0');
+                if (secsElem) secsElem.textContent = String(seconds).padStart(2, '0');
+
+                // Top banner countdown format
+                const bannerCount = document.getElementById('countdown-banner');
+                if (bannerCount) {
+                    bannerCount.textContent = `Scade in: ${days}g ${hours}o ${minutes}m ${seconds}s`;
+                }
+            }
+
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+
+        initCountdown();
+    </script>
+</body>
+</html>
